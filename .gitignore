@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.env*
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Type checking and linting
+.mypy_cache/
+.ruff_cache/
+
+# Testing
+.pytest_cache/
+.coverage
+
+# User data directories (keep structure, ignore contents)
+questions/*
+!questions/.gitkeep
+results/*
+!results/.gitkeep
+
+# Logs
+*.log
+logs/*
+!logs/.gitkeep
+
+# Configuration (sensitive)
+.auspiq-trainer.json
+config.json
+*.key
