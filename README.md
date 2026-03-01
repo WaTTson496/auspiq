@@ -34,9 +34,9 @@ AuspiQは、AIを使って早押しクイズの問題文の続きを予測し、
 
 ### ファイル対応
 
-- **複数入力形式**: テキスト、CSV、JSON形式をサポート
-- **結果出力**: JSON形式での詳細な解析結果
-- **練習ファイル**: 解析結果を練習用に変換
+- **入力形式**: 直接入力（CLI引数） / JSON / CSV
+- **結果出力**: JSON 形式の解析結果と統計テキスト
+- **練習ファイル**: 解析結果・生成結果の両方に対応
 
 ## クイックスタート
 
@@ -76,10 +76,10 @@ auspiq predict single "静岡県と山梨県の県境に位置する、標高"
 auspiq predict full "静岡県と山梨県の県境に位置する、標高3776mと日本で最も高い山は何でしょう？"
 
 # 3. 一括処理 - ファイルから複数問題を処理
-auspiq batch --input questions.txt
+auspiq batch --input questions.json
 
-# 4. バッチAPI - 50%コスト削減で大量処理
-auspiq batch --input questions.txt --use-batch-api --submit
+# 4. バッチAPI - 非同期で大量処理
+auspiq batch --input questions.json --use-batch-api --submit
 
 # 5. 練習モード - プレイヤーvsAIの対戦形式練習
 auspiq practice --file results.json --threshold 80 --speed 0.1
@@ -92,38 +92,38 @@ auspiq config check
 
 ## ドキュメント
 
-### 利用者向け
+AuspiQ のドキュメントは Diátaxis に沿って整理しています。
 
-- **[インストールガイド](docs/user/installation.md)** - システム要件、インストール手順、初期設定
-- **[設定ガイド](docs/user/configuration.md)** - 設定ファイル、全CLIコマンド、APIキー設定、トラブルシューティング
-- **[予測機能ガイド](docs/user/prediction.md)** - 単発推測、全文解析、一括処理の詳細な使用方法
-- **[練習機能ガイド](docs/user/practice.md)** - 対戦形式の早押し練習モードの使い方
-- **[バッチAPI活用ガイド](docs/user/batch-api.md)** - バッチ処理の使用方法
-- **[ファイル形式ガイド](docs/user/file-formats.md)** - サポートされている入力・出力ファイル形式
+**ドキュメント一覧**: [docs/README.md](docs/README.md)
 
-### 開発者向け
+### チュートリアル
 
-- **[開発ガイド](docs/developer/development.md)** - 開発環境セットアップ、テスト実行、コントリビューション方法
-- **[API リファレンス](docs/developer/api-reference.md)** - 全クラス・メソッドの仕様、プログラマティックな使用方法
-- **[OpenAI API 連携](docs/developer/api_integration.md)** - API連携の詳細、プロンプト設計、パフォーマンス最適化
+- [クイックスタート](docs/tutorials/quickstart.md)
+- [初めての問題生成](docs/tutorials/first-generation.md)
 
-**すべてのドキュメント**: [ドキュメント一覧](docs/README.md)
+### ハウツー
 
-## より詳しい使い方
+- [インストール方法](docs/how-to/installation.md)
+- [設定の使い方](docs/how-to/configuration.md)
+- [予測機能の使い方](docs/how-to/prediction.md)
+- [問題生成の使い方](docs/how-to/generation.md)
+- [練習機能の使い方](docs/how-to/practice.md)
 
-### 機能別ガイド
+### リファレンス
 
-- **予測機能の詳細**: [予測機能ガイド](docs/user/prediction.md) - 単発推測から一括処理まで
-- **練習機能の詳細**: [練習機能ガイド](docs/user/practice.md) - 対戦形式の早押し練習の使い方
-- **バッチAPI活用**: [バッチAPI活用ガイド](docs/user/batch-api.md) - バッチ処理
-- **ファイル形式**: [ファイル形式ガイド](docs/user/file-formats.md) - 入出力ファイルの詳細仕様
+- [CLI リファレンス](docs/reference/cli.md)
+- [設定リファレンス](docs/reference/configuration.md)
+- [ファイル形式](docs/reference/file-formats.md)
+- [ファセット](docs/reference/facets.md)
+- [重み](docs/reference/weights.md)
+- [品質チェック](docs/reference/quality.md)
+- [ログ](docs/reference/logging.md)
+- [ストレージ/履歴](docs/reference/storage.md)
 
-### 困ったときは
+### 解説
 
-- **インストールで困った場合**: [インストールガイド](docs/user/installation.md) のトラブルシューティング
-- **設定の詳細**: [設定ガイド](docs/user/configuration.md) または `auspiq config --help`
-- **プログラムから使用したい場合**: [API リファレンス](docs/developer/api-reference.md)
-- **開発に参加したい場合**: [開発ガイド](docs/developer/development.md)
+- [アーキテクチャ概要](docs/explanation/architecture.md)
+- [OpenAI API 連携の説明](docs/explanation/openai-integration.md)
 
 ## ライセンス
 
